@@ -1,0 +1,16 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="ApplicationLauncher" type="Application" factoryName="Application" nameIsGenerated="true">
+    <option name="ALTERNATIVE_JRE_PATH" value="16" />
+    <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+    <envs>
+      <env name="CLUSTER_ENABLED" value="false" />
+    </envs>
+    <option name="MAIN_CLASS_NAME" value="com.extendaretail.ApplicationLauncher" />
+    <module name="vertx-example-project" />
+    <option name="PROGRAM_PARAMETERS" value="run com.extendaretail.Application" />
+    <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration debug="false" scan="false">
+
+  <!-- Correlation ID -->
+  <conversionRule conversionWord="vcl" converterClass="io.reactiverse.contextual.logging.LogbackConverter"/>
+
+  <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+      <pattern>%green(%d{HH:mm:ss.SSS}) %cyan([%t]) [%vcl{Correlation-ID:-n/a}] %highlight(%-5level) %yellow(%logger{1}) - %msg%n</pattern>
+    </encoder>
+  </appender>
+
+  <!-- Turn off metrics -->
+  <logger name="metrics" level="off" />
+  <!-- Vert.x startup message, we dont need it.. -->
+  <logger name="io.vertx.core.impl.launcher.commands.VertxIsolatedDeployer" level="off"/>
+
+  <root level="${LOGBACK_ROOT_LEVEL:-info}">
+    <appender-ref ref="stdout"/>
+  </root>
+</configuration>
