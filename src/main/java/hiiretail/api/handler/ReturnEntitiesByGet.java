@@ -23,7 +23,7 @@ import org.slf4j.LoggerFactory;
  *
  * @author thced
  */
-public class ReturnEntitiesByGet extends UpperCaseNamePreProcessor implements Handler<RoutingContext> {
+public class ReturnEntitiesByGet implements Handler<RoutingContext> {
 
 
   private static final Logger log = LoggerFactory.getLogger(ReturnEntitiesByGet.class);

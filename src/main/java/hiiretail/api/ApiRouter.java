@@ -2,9 +2,7 @@ package hiiretail.api;
 
 import static java.util.Objects.nonNull;
 
-import hiiretail.api.handler.AddEntityByPost;
-import hiiretail.api.handler.CorrelationIdDecorator;
-import hiiretail.api.handler.ReturnEntitiesByGet;
+import hiiretail.api.handler.*;
 import hiiretail.api.handler.health.HealthChecksProvider;
 import io.vertx.core.AbstractVerticle;
 import io.vertx.core.Future;
@@ -108,11 +106,13 @@ public class ApiRouter extends AbstractVerticle {
     var errorHandler = errorHandler();
 
     builder
-        .operation("return.entities")
-        .handler(new ReturnEntitiesByGet())
+        .operation("return.books")
+        //.handler(new ReturnEntitiesByGet())
+        .handler(new GetBook())
         .failureHandler(errorHandler);
 
-    builder.operation("add.entity").handler(new AddEntityByPost()).failureHandler(errorHandler);
+    //builder.operation("add.entity").handler(new AddEntityByPost()).failureHandler(errorHandler);
+    builder.operation("reader.borrow").handler(new PostBook()).failureHandler(errorHandler);
 
     return builder;
   }

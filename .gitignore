@@ -189,3 +189,4 @@ nbdist/
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+DO NOT COMMIT.txt
