@@ -50,6 +50,28 @@ paths:
             application/json:
               schema:
                 type: string
+  /reader:
+    post:
+      summary: Interact with readers
+      operationId: reader.borrow
+      description: |
+        Readers can borrow books
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Entity'
+      responses:
+        200:
+          description: |
+            Successful borrow of an entity
+          headers:
+            'X-Response-Time':
+              $ref: '#/components/headers/X-Response-Time'
+          content:
+            application/json:
+              schema:
+                type: string
 
 components:
   headers:
