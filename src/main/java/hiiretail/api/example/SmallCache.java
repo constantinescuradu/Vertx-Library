@@ -46,4 +46,11 @@ public class SmallCache implements Cache<JsonObject> {
         .onSuccess(ignore -> log.info("Stored entity={}", entity))
         .mapEmpty();
   }
+
+  @Override
+  public Future<Void> update(JsonObject entity) {
+    log.info("Updating entity={}", entity);
+    // TODO: process the request to borrow a book
+    return Future.succeededFuture();
+  }
 }

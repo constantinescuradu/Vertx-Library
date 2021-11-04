@@ -13,12 +13,12 @@ public class PostBook implements Handler<RoutingContext> {
     Vertx vertx = event.vertx();
     JsonObject entity = event.getBodyAsJson();
 
-    addEntitytoCache(vertx, entity)
+    processEntityFromCache(vertx, entity)
         .onSuccess(event1 -> event.end("Book was borrowed by POST"))
         .onFailure(event::fail);
   }
 
-  private Future<Void> addEntitytoCache(Vertx vertx, JsonObject entity){
-    return vertx.eventBus().request(Cache.ADD_TO_CACHE, entity).mapEmpty();
+  private Future<Void> processEntityFromCache(Vertx vertx, JsonObject entity){
+    return vertx.eventBus().request(Cache.LEND_FROM_CACHE, entity).mapEmpty();
   }
 }

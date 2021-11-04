@@ -70,6 +70,7 @@ public class CacheVerticle extends AbstractVerticle {
    */
   private Future<Void> registerEventBusHandlers() {
     vertx.eventBus().consumer(Cache.ADD_TO_CACHE, this::addToCache);
+    vertx.eventBus().consumer(Cache.LEND_FROM_CACHE, this::lendFromCache);
     vertx.eventBus().consumer(Cache.RETRIEVE_FROM_CACHE, this::retrieveFromCache);
     return succeededFuture();
   }
@@ -87,6 +88,10 @@ public class CacheVerticle extends AbstractVerticle {
         .map(JsonArray::stream)
         .map(stream -> stream.limit(max).collect(JsonArray::new, JsonArray::add, JsonArray::addAll))
         .onSuccess(slice -> message.reply(slice)); // no lambda, for clarity
+  }
+
+  private void lendFromCache(Message<JsonObject> message) {
+    // TODO: process book lending
   }
 
   /**
