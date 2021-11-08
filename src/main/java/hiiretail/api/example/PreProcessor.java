@@ -2,6 +2,8 @@ package hiiretail.api.example;
 
 import io.vertx.core.Future;
 import io.vertx.core.json.JsonObject;
+
+import java.util.List;
 import java.util.function.Function;
 
 /**
@@ -10,7 +12,7 @@ import java.util.function.Function;
  * @author thced
  */
 @FunctionalInterface
-public interface PreProcessor extends Function<JsonObject, Future<JsonObject>> {
+public interface PreProcessor extends Function<JsonObject, Future<JsonObject>>{
 
   /**
    * Apply the pre-processing
@@ -20,4 +22,5 @@ public interface PreProcessor extends Function<JsonObject, Future<JsonObject>> {
    */
   @Override
   Future<JsonObject> apply(JsonObject entity);
+
 }

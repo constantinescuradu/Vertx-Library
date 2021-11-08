@@ -42,7 +42,8 @@ public class SmallCache implements Cache<JsonObject> {
 
   @Override
   public Future<Void> add(JsonObject entity) {
-    return succeededFuture(cache.put(counter.getAndIncrement(), entity))
+    cache.put(counter.getAndIncrement(), entity);
+    return succeededFuture()
         .onSuccess(ignore -> log.info("Stored entity={}", entity))
         .mapEmpty();
   }
