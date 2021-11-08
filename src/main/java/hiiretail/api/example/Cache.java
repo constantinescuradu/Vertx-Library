@@ -14,8 +14,11 @@ public interface Cache<V> {
 
   String ADD_TO_CACHE = "add.to.cache";
   String RETRIEVE_FROM_CACHE = "retrieve.from.cache";
+  String LEND_FROM_CACHE = "lend.from.cache";
 
   Future<JsonArray> retrieve();
 
   Future<Void> add(V entity);
+
+  Future<Void> update(V entity);
 }
